@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+
+    <div class="col-3 d-none col-md-3 d-md-block"></div>
+    </div>
+
+    <div class="row mt-1" style="height:80px;">
+        <div class="col-3 d-none col-md-3 d-md-block"></div>
+        <div class="col-12 col-md-12 col-sm-12 d-flex justify-content-center align-items-center text-light h3">
+            
+            <input type="text"  [(ngModel)]="newActivity" placeholder="To-do activity" required=true>
+            <input type="date"  placeholder="Date" [(ngModel)]="todoDate">
+    
+            <button (click)="addToList()" 
+                class="btn btn-primary">
+                ADD ACTIVITY
+            </button>
+        </div>
+        <div class="row justify-content-center
+        align-items-center" style="height:80px">
+            <div class="col-3"></div>
+            <div class="col-6 text-primary h1">
+                TO-DO LIST
+            </div>
+        </div>
+        <div class="row  mt-1">
+            <div class="col-1 d-none col-md-1 d-md-block"></div>
+            <div class="col-12 col-md-10 d-flex
+            justify-content-center align-items-center
+            text-dark">
+                <div class="col-3 h5">Activity Name</div>
+                <div class="col-3 h5">Date</div>
+                <div class="col-3 h5">Status</div>
+                <div class="col-3"></div>
+            </div>
+            
+            <div class="col-1 d-none col-md-1 d-md-block"></div>
+        </div>
+        <div *ngIf="!activities || activities.length === 0">
+            <div class="d-flex justify-content-center p-5">No activities to do</div>
+        </div>
+        <app-activity  *ngFor="let todo of activities" class="row mt-1" style="height:100px;"
+        [todo]="todo"
+        (deleteItem)=deleteTask(todo)>
+        </app-activity>
+
+        <div class="col-3 d-none col-md-3 d-md-block"></div>
+    </div>
+</body>
+</html>

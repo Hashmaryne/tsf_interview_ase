@@ -1,0 +1,23 @@
+<div class="col-1 d-none col-md-1 d-md-block"></div>
+  
+<div class="col-12 col-md-10 bg-light d-flex
+            justify-content-center align-items-center
+            text-dark h6 border border-info">
+
+    <div class="col-3"><input type="text" value="{{todo.name}}" style="width: auto;"></div>
+    <div class="col-3 h5">{{todo.date}}</div>
+    <div class="col-3">
+        <div class="status">
+            <label>Completed
+                <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        
+    </div>
+    
+    <input (click)="deleteTodo(todo)" type="button"
+    value="Delete" class="col-3 btn btn-danger">
+</div>
+          
+<div class="col-1 d-none col-md-1 d-md-block"></div>
